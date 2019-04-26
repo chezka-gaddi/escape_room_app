@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Adventure Gaddi Chezka</string>
+    <string name="title">Gaddi</string>
+    <string name="score">Score: %1$d</string>
+    <string name="select_player_btn">Select Player</string>
+    <string name="player_select_activity">Player Select Activity</string>
+    <string name="square_player">Square</string>
+    <string name="circle_player">Circle</string>
+    <string name="game_over">YOU ESCAPED!</string>
+</resources>
