@@ -16,6 +16,9 @@ import android.view.View;
 import static android.support.constraint.Constraints.TAG;
 
 
+/**
+ * The type Game view.
+ */
 public class GameView extends View {
 
     private static final String SUPER_STATE = "superState";
@@ -84,9 +87,17 @@ public class GameView extends View {
     }));
 
     private interface PlayerStrategy {
+        /**
+         * Draw player.
+         *
+         * @param canvas the canvas
+         */
         void drawPlayer(Canvas canvas);
     }
 
+    /**
+     * The type Circle player.
+     */
     public class CirclePlayer implements PlayerStrategy {
         @Override
         public void drawPlayer(Canvas canvas) {
@@ -96,6 +107,9 @@ public class GameView extends View {
         }
     }
 
+    /**
+     * The type Square player.
+     */
     public class SquarePlayer implements PlayerStrategy {
         @Override
         public void drawPlayer(Canvas canvas) {
@@ -109,8 +123,7 @@ public class GameView extends View {
     /**
      * Simple constructor to use when creating a view from code.
      *
-     * @param context The Context the view is running in, through which it can
-     *                access the current theme, resources, etc.
+     * @param context The Context the view is running in, through which it can                access the current theme, resources, etc.
      */
     public GameView(Context context) {
         super(context);
@@ -208,6 +221,12 @@ public class GameView extends View {
     }
 
 
+    /**
+     * Animate player.
+     *
+     * @param x_vel the x vel
+     * @param y_vel the y vel
+     */
     public void animatePlayer(float x_vel, float y_vel) {
 //        Log.d(TAG, "Animating Player");
         float MOVE_PER_SEC = 100000;
@@ -216,12 +235,23 @@ public class GameView extends View {
     }
 
 
+    /**
+     * Sets player position.
+     *
+     * @param x the x
+     * @param y the y
+     */
     public void setPlayerPosition(int x, int y) {
         player_x = x * (margin_right_x - width/2 - radius);
         player_y = y * (margin_bottom_y - height/2 - radius);
     }
 
 
+    /**
+     * Sets player shape.
+     *
+     * @param type the type
+     */
     public void setPlayerShape(String type) {
         switch(type) {
             case "circle":
@@ -269,7 +299,12 @@ public class GameView extends View {
     }
 
 
-    // REBENITSCH: ROOM
+    /**
+     * Sets room.
+     *
+     * @param newState the new state
+     */
+// REBENITSCH: ROOM
     public void setRoom(MapState.States newState) {
         switch (newState) {
             case Grey:
@@ -301,6 +336,11 @@ public class GameView extends View {
     }
 
 
+    /**
+     * Gets end.
+     *
+     * @return the end
+     */
     public Boolean getEnd() { return end; }
 
 

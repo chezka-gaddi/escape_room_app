@@ -1,5 +1,15 @@
 package edu.sdsmt.id7180120;
 
+/**
+ * Program Name: Android
+ * Author: Chezka Gaddi
+ * Class: CSC468 GUI M001
+ * Description:
+ * Last Tier Passed:
+ * Extensions:
+ * Known Bugs: None
+ */
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +21,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
+/**
+ * The type Main activity.
+ */
 public class MainActivity extends Activity {
 
     private static final String SCORE_KEY = "currentScore";
@@ -22,6 +35,9 @@ public class MainActivity extends Activity {
     private int current_score = 0;
 
 
+    /**
+     * @param savedInstanceState state saved
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,14 +73,18 @@ public class MainActivity extends Activity {
             view.setPlayerShape(savedExtra);
     }
 
-
+    /**
+     * @param outState state to save
+     */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt(SCORE_KEY, current_score);
         super.onSaveInstanceState(outState);
     }
 
-
+    /**
+     * @param savedInstanceState state saved
+     */
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -72,6 +92,11 @@ public class MainActivity extends Activity {
     }
 
 
+    /**
+     * Launch select player activity.
+     *
+     * @param view the view
+     */
     public void launchSelectPlayerActivity(View view) {
         Log.d(LOG_TAG, "Select Player Activity");
 
@@ -80,6 +105,9 @@ public class MainActivity extends Activity {
     }
 
 
+    /**
+     * Launch EndActivity with the score.
+     */
     private void launchEndActivity() {
         Log.d(LOG_TAG, "End Activity");
 

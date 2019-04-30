@@ -1,13 +1,72 @@
 package edu.sdsmt.id7180120;
 
+/**
+ * @file
+ * @biref Contains the class and methods to maintain MapState.
+ */
+
 import android.util.Log;
 
 import static android.content.ContentValues.TAG;
 
+/**
+ * The type Map state.
+ */
 public class MapState {
 
-    public enum States {Grey, Blue, Red, Green, Orange, Exit}
-    public enum Directions {Up, Down, Left, Right, Static}
+    /**
+     * The enum States.
+     */
+    public enum States {
+        /**
+        * Grey states.
+        */
+        Grey,
+        /**
+         * Blue states.
+         */
+        Blue,
+        /**
+         * Red states.
+         */
+        Red,
+        /**
+         * Green states.
+         */
+        Green,
+        /**
+         * Orange states.
+         */
+        Orange,
+        /**
+         * Exit states.
+         */
+        Exit}
+
+    /**
+     * The enum Directions.
+     */
+    public enum Directions {
+        /**
+        * Up directions.
+        */
+        Up,
+        /**
+         * Down directions.
+         */
+        Down,
+        /**
+         * Left directions.
+         */
+        Left,
+        /**
+         * Right directions.
+         */
+        Right,
+        /**
+         * Static directions.
+         */
+        Static}
 
     private States state = States.Grey;
     private Directions dir = Directions.Static;
@@ -15,11 +74,25 @@ public class MapState {
     private Boolean noEntry = false;
     private Boolean hasKey = false;
 
+    /**
+     * Instantiates a new Map state.
+     *
+     * @param v the v
+     */
     MapState(GameView v) {
         view = v;
         view.setRoom(state);
     }
 
+    /**
+     * Instantiates a new Map state.
+     *
+     * @param v      the v
+     * @param room   the room
+     * @param direct the direct
+     * @param key    the key
+     * @param entry  the entry
+     */
     MapState(GameView v, States room, Directions direct, Boolean key, Boolean entry) {
         view = v;
         state = room;
@@ -29,6 +102,9 @@ public class MapState {
         view.setRoom(state);
     }
 
+    /**
+     * On left.
+     */
     public void onLeft() {
         dir = Directions.Left;
         switch (state) {
@@ -52,6 +128,9 @@ public class MapState {
        view.animatePlayer(-1, 0);
     }
 
+    /**
+     * On right.
+     */
     public void onRight() {
         dir = Directions.Right;
         switch (state) {
@@ -80,6 +159,9 @@ public class MapState {
         view.animatePlayer(1, 0);
     }
 
+    /**
+     * On up.
+     */
     public void onUp() {
         dir = Directions.Up;
         switch (state) {
@@ -100,6 +182,9 @@ public class MapState {
         view.animatePlayer(0, -1);
     }
 
+    /**
+     * On down.
+     */
     public void onDown() {
         dir = Directions.Down;
         switch (state) {
@@ -120,6 +205,9 @@ public class MapState {
         view.animatePlayer(0, 1);
     }
 
+    /**
+     * Sets state.
+     */
     public void setState() {
         if (noEntry) {
             switch (dir) {
@@ -170,19 +258,51 @@ public class MapState {
         }
     }
 
+    /**
+     * Animate player to bounce right.
+     */
     private void bounceRight() { view.animatePlayer(1, 0); }
 
+    /**
+     * Animate player to bounce left.
+     */
     private void bounceLeft() { view.animatePlayer(-1, 0); }
 
+    /**
+     * Animate player to bounce up.
+     */
     private void bounceUp() { view.animatePlayer(0, -1); }
 
+    /**
+     * Animate player to bounce down.
+     */
     private void bounceDown() { view.animatePlayer(0, 1); }
 
+    /**
+     * Gets room.
+     *
+     * @return the room
+     */
     public States getRoom() { return this.state; }
 
+    /**
+     * Gets dir.
+     *
+     * @return the dir
+     */
     public Directions getDir() { return this.dir; }
 
+    /**
+     * Gets has key.
+     *
+     * @return the has key
+     */
     public Boolean getHasKey() { return this.hasKey; }
 
+    /**
+     * Gets no entry.
+     *
+     * @return the no entry
+     */
     public Boolean getNoEntry() { return this.noEntry; }
 }

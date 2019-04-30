@@ -11,6 +11,9 @@ import android.view.View;
 import edu.sdsmt.id7180120.ColorSelectActivity;
 import edu.sdsmt.id7180120.R;
 
+/**
+ * The type Color select view.
+ */
 public class ColorSelectView extends View {
 
     /**
@@ -24,16 +27,34 @@ public class ColorSelectView extends View {
 
     private float marginTop = 0;
 
+    /**
+     * Instantiates a new Color select view.
+     *
+     * @param context the context
+     */
     public ColorSelectView(Context context) {
         super(context);
         init();
     }
 
+    /**
+     * Instantiates a new Color select view.
+     *
+     * @param context the context
+     * @param attrs   the attrs
+     */
     public ColorSelectView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
+    /**
+     * Instantiates a new Color select view.
+     *
+     * @param context  the context
+     * @param attrs    the attrs
+     * @param defStyle the def style
+     */
     public ColorSelectView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
