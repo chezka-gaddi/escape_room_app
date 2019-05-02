@@ -4,9 +4,16 @@ package edu.sdsmt.id7180120;
  * Program Name: Android
  * Author: Chezka Gaddi
  * Class: CSC468 GUI M001
- * Description:
- * Last Tier Passed:
- * Extensions:
+ * Description: This is an app for a "choose your own adventure game". The utility portion
+ * of the app contains the author's last name, the current score, and a button to the select
+ * player activity. The Select Player Activity allows you to choose between a circle or square
+ * as your player. That player is displayed in the Game View inside a colored room. The player
+ * must go to the blue room before being able to exit the red room, which signals the end of
+ * the game. A game over room is displayed with resulting end time.
+ * Last Tier Passed: Tier 4
+ * Extensions: Instead of resetting to the center of the room, slide back/in from the edge (10 pts)
+ *             Make the player motion controlled by a state machine or include in the current
+ *             state. (10 pts): Marked with REBENITSCH: EXTENSION
  * Known Bugs: None
  */
 

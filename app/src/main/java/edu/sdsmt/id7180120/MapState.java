@@ -2,7 +2,7 @@ package edu.sdsmt.id7180120;
 
 /**
  * @file
- * @biref Contains the class and methods to maintain MapState.
+ * @brief Contains the class and methods to maintain MapState.
  */
 
 import android.util.Log;
@@ -105,6 +105,9 @@ public class MapState {
     /**
      * On left.
      */
+    // REBENITSCH: EXTENSION
+    // onLeft, onRight, onUp, onDown, bounceRight, bounceLeft, bounceUp, bounceDown all controls
+    // the movement of the player
     public void onLeft() {
         dir = Directions.Left;
         switch (state) {
@@ -144,6 +147,7 @@ public class MapState {
                 noEntry = false;
                 break;
 
+                // REBENITSCH: EXIT
             case Red:
                 if (hasKey) {
                     state = States.Exit;

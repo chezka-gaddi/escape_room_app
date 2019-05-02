@@ -184,7 +184,10 @@ public class GameView extends View {
         player = new SquarePlayer();
     }
 
-
+    /**
+     * Draw room and character within room.
+     * @param canvas drawing space
+     */
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -210,7 +213,10 @@ public class GameView extends View {
         invalidate();
     }
 
-
+    /**
+     * Draw room in specified color.
+     * @param canvas drawing space
+     */
     private void drawRoom(Canvas canvas) {
         margin_left_x = (width - boxSize) / 2;
         margin_top_y = (height - boxSize) / 2;
@@ -219,7 +225,6 @@ public class GameView extends View {
 
         canvas.drawRect(margin_left_x, margin_top_y, margin_right_x, margin_bottom_y, roomPaint);
     }
-
 
     /**
      * Animate player.
@@ -234,7 +239,6 @@ public class GameView extends View {
         y_velocity = y_vel * MOVE_PER_SEC * delta;
     }
 
-
     /**
      * Sets player position.
      *
@@ -245,7 +249,6 @@ public class GameView extends View {
         player_x = x * (margin_right_x - width/2 - radius);
         player_y = y * (margin_bottom_y - height/2 - radius);
     }
-
 
     /**
      * Sets player shape.
@@ -267,7 +270,9 @@ public class GameView extends View {
         }
     }
 
-
+    /**
+     * Check that player has not passed room boundaries and handles in the event it does.
+     */
     private void checkBoundaries() {
 //        Log.d(TAG, "Checking Boundaries");
         if (player_y < 20 && player_y > -20 && player_x < 20 && player_x > -20) {
@@ -298,13 +303,12 @@ public class GameView extends View {
         }
     }
 
-
     /**
      * Sets room.
      *
      * @param newState the new state
      */
-// REBENITSCH: ROOM
+    // REBENITSCH: ROOM
     public void setRoom(MapState.States newState) {
         switch (newState) {
             case Grey:
@@ -335,7 +339,6 @@ public class GameView extends View {
         }
     }
 
-
     /**
      * Gets end.
      *
@@ -343,7 +346,11 @@ public class GameView extends View {
      */
     public Boolean getEnd() { return end; }
 
-
+    /**
+     * Handles touch event on view.
+     * @param event touch event
+     * @return true
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         gestureDetector.onTouchEvent(event);
@@ -362,11 +369,17 @@ public class GameView extends View {
         return true;
     }
 
-
+    /**
+     * On click event.
+     * @return superclass performClick handler.
+     */
     @Override
     public boolean performClick() { return super.performClick(); }
 
-
+    /**
+     * Save current state.
+     * @return bundle with saved state
+     */
     @Override
     public Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
@@ -389,7 +402,10 @@ public class GameView extends View {
         return bundle;
     }
 
-
+    /**
+     * Restore previous state.
+     * @param state state saved
+     */
     @Override
     public void onRestoreInstanceState(Parcelable state) {
         if (state instanceof Bundle) {
@@ -411,5 +427,4 @@ public class GameView extends View {
         }
         super.onRestoreInstanceState(state);
     }
-
 }
